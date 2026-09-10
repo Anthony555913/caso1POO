@@ -1,19 +1,22 @@
 #Especificación
-**Tablero**
+**battleFlield**
+- X int
+- Y int
+
+**controlJuego**
 - Equipo1 Equipo
 - Equipo2 Equipo
-- Tablero list< Casilla>
-- calcularDanno(PerrsonaMutante)
+- CalDistancia(mutante Mmutante1,mutante Mutante2)
+- DefinirAcciones()
+- Run()
 
 **Equipo**
 - Integrantes list<PerrsonaMutante>
+- CanIntegrantes int
 - Color string
 - Vivos int
+- EstadoEquipo bolean=true 
 
-**Casilla**
-- X int
-- Y int
-- estadoMutante bolean 
 
 **PerrsonaMutante**
 - Id int
@@ -21,10 +24,12 @@
 - Vida int=100
 - Defensa int
 - PoderMutante poder 
-- EstadoInmune bolean 
-- UbicacionActual Ubicación
+- EstadoInmune bolean //puede o no resibir un ataque
 - EstadoDefencivo bolean
-- usarPoder()defenderse
+- usarPoder()
+- defenderse()
+- detectarMutanteEneigo()
+- mover()
 - get()
 - set()
 
