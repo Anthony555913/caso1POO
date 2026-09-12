@@ -1,41 +1,49 @@
 #Especificación
-**battleFlield**
-- X int
-- Y int
 
 **controlJuego**
-- Equipo1 Equipo
-- Equipo2 Equipo
-- CalDistancia(mutante Mmutante1,mutante Mutante2)
-- DefinirAcciones()
-- Run()
+- -Equipo1 Equipo
+- -Equipo2 Equipo
+- -tablero battleFlield
+- +CalDistancia(mutante Mmutante1,mutante Mutante2)
+- +DefinirAcciones()
+- +Run()
+- +get()
+- +set()
+
+**battleFlield**
+- -X int
+- -Y int
+- +set()
+- +get()
 
 **Equipo**
-- Integrantes list<PerrsonaMutante>
-- CanIntegrantes int
-- Color string
-- Vivos int
-- EstadoEquipo bolean=true 
+- -Integrantes list<PerrsonaMutante>
+- -CanIntegrantes int
+- -Color string
+- -Vivos int
+- -EstadoEquipo bolean=true 
+- +get()
+- +set()
+
 
 
 **PerrsonaMutante**
-- Id int
-- Estado bolean 
-- Vida int=100
-- Defensa int
-- PoderMutante poder 
-- EstadoInmune bolean //puede o no resibir un ataque
-- EstadoDefencivo bolean
-- usarPoder()
-- defenderse()
-- detectarMutanteEneigo()
-- mover()
-- get()
-- set()
+- -Id int
+- -Estado bolean 
+- -Vida int=100
+- -Defensa int
+- -PoderMutante poder 
+- -EstadoDefencivo bolean
+- -ModoInmune bolean= false //puede o no ser atacado 
+- +UsarPoder()
+- +detectarMutanteEneigo()
+- +Mover()
+- +get()
+- +set()
 
 **Poder<<inreface>>**
-- usarPoder()
+- +UsarPoder()
 
 **PoderMutante extend<< Poder>>**
-- usarPoder() //cada poder debería tener una forma de movimiento diferente
+- +UsarPoder() //cada poder debería tener una forma de movimiento diferente
 
