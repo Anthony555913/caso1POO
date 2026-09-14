@@ -4,17 +4,24 @@
 - -Equipo1: Equipo
 - -Equipo2: Equipo
 - -Tablero: BattleField
+- -CanIntegrantePorEquipo int
 - +CalDistancia(PersonaMutante Mutante1,PersonaMutante Mutante2)
-- +DefinirAcciones()
-- +Run()
-- +get()
-- +set()
+- +PlayGame()
+- +IniciarVariables()
+- +CrearEquipos()
+- +IniciarTablero()
+- +MoverMutantes()
+- +DefinirAccion()//llama a CalDistancia
+- +EjecutarAccion()
+- +CalcularEstadoEquipo()
+- +Get()
+- +Set()
 
 **BattleField**
 - -X: int
 - -Y: int
-- +set()
-- +get()
+- +Set()
+- +Get()
 
 **Equipo**
 - -Integrantes: list<PersonaMutante>
@@ -22,8 +29,9 @@
 - -Color: string
 - -Vivos: int
 - -EstadoEquipo: boolean=true 
-- +get()
-- +set()
+- +RestarIntegrantes()
+- +Get()
+- +Set()
 
 
 
@@ -32,15 +40,17 @@
 - -Estado: boolean
 - -Vida: int = 100
 - -Defensa: int
+- -X: int
+- -Y: int
 - -PoderMutante: Poder
-- -EstadoDefensivo: boolean
 - -ModoInmune: boolean = false // puede o no ser atacado
 - +UsarPoder()
 - +Mover()
-- +get()
-- +set()
+- +Get()
+- +Set()
 
-**Poder<<interface>>**
+**Poder<<abstract>>**
+- -danno int
 - +UsarPoder()
 
 **PoderMutante extends<< Poder>>**
