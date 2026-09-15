@@ -1,6 +1,6 @@
 #Especificación
 
-**ControlJuego**
+**ControlJuego package Control**  
 - -Equipo1: Equipo
 - -Equipo2: Equipo
 - -Tablero: BattleField
@@ -17,14 +17,14 @@
 - +Get()
 - +Set()
 
-**BattleField**
+**BattleField package BattleField** 
 - -X: int
 - -Y: int
 - +Set()
 - +Get()
 
-**Equipo**
-- -Integrantes: list<PersonaMutante>
+**Equipo package Team** 
+- -Integrantes: PersonaMutante list
 - -CanIntegrantes: int
 - -Color: string
 - -Vivos: int
@@ -35,7 +35,7 @@
 
 
 
-**PersonaMutante**
+**PersonaMutante package Model** 
 - -Id: int
 - -Estado: boolean
 - -Vida: int = 100
@@ -49,9 +49,17 @@
 - +Get()
 - +Set()
 
-**Poder<<abstract>>**
+**Poder<<abstract>> package Power** 
 - -danno int
 - +UsarPoder()
+- +Get()
+- +Set()
 
-**PoderMutante extends<< Poder>>**
-- +UsarPoder() //cada poder debería tener una forma de movimiento diferente
+**PoderMutanteFuerte extends<< Poder>>** package Power
+- +UsarPoder() 
+
+**PoderMutanteMedio extends<< Poder>> package Power**
+- +UsarPoder() 
+
+**PoderMutanteDebil extends<< Poder>> package Power**
+- +UsarPoder() 
