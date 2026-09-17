@@ -49,17 +49,17 @@
 - +Get()
 - +Set()
 
-**Poder<<abstract>> package Power** 
+**Poder<<abstract>> package Molde** 
 - -danno int
 - +UsarPoder()
 - +Get()
 - +Set()
 
-**PoderMutanteFuerte extends<< Poder>>** package Power
+**PoderMutanteFuerte extends<< Poder>>** package Molde
 - +UsarPoder() 
 
-**PoderMutanteMedio extends<< Poder>> package Power**
+**PoderMutanteMedio extends<< Poder>> package Molde**
 - +UsarPoder() 
 
-**PoderMutanteDebil extends<< Poder>> package Power**
+**PoderMutanteDebil extends<< Poder>> package Molde**
 - +UsarPoder() 
