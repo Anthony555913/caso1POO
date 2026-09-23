@@ -82,5 +82,7 @@ public class PersonaMutante{
     public void setModoInmune(boolean ModoInmune) {
         this.ModoInmune = ModoInmune;
     }
-    
+    public int UsarPoder(){
+        return PoderMutante.UsarPoder();
+    }
 }

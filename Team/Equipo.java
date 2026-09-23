@@ -1,7 +1,7 @@
 package Team;
 
-import molde.PersonaMutante;
 import java.util.ArrayList;
+import molde.PersonaMutante;
 public class Equipo{
     private ArrayList<PersonaMutante> Integrantes;
     private int CanIntegrantes;
@@ -52,5 +52,12 @@ public class Equipo{
     }
     public void RestarIntegrantes(int pResta){
         this.CanIntegrantes-=pResta;
+        if (this.CanIntegrantes <= 0) {
+            setEstadoEquipo(false);
+            
+        }
+    }
+    public ArrayList<PersonaMutante> getIntegrantes(){
+        return this.Integrantes;
     }
 }

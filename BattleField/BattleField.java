@@ -1,3 +1,4 @@
+package BattleField;
 public class BattleField{
     private int X;
     private int Y;

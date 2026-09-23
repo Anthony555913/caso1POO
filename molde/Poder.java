@@ -7,5 +7,5 @@ abstract class Poder{
     public int getDanno() {
         return this.Danno;
     }
-    public abstract void UsarPoder();
+    public abstract int UsarPoder();
 }
