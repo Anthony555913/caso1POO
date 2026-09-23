@@ -8,7 +8,6 @@ public class PersonaMutante{
     private int X;
     private int Y;
     private Poder PoderMutante;
-    private boolean ModoInmune = false;
 
     public PersonaMutante(int Id, boolean Estado, int Defensa, int X, int Y, Poder PoderMutante) {
         this.Id = Id;
@@ -23,65 +22,58 @@ public class PersonaMutante{
         return Id;
     }
 
-    public void setId(int Id) {
-        this.Id = Id;
+    public void setId(int pId) {
+        this.Id = pId;
     }
 
     public boolean getEstado() {
         return Estado;
     }
 
-    public void setEstado(boolean Estado) {
-        this.Estado = Estado;
+    public void setEstado(boolean pEstado) {
+        this.Estado = pEstado;
     }
 
     public int getVida() {
         return Vida;
     }
 
-    public void setVida(int Vida) {
-        this.Vida = Vida;
+    public void setVida(int pVida) {
+        this.Vida = pVida;
     }
 
     public int getDefensa() {
         return Defensa;
     }
 
-    public void setDefensa(int Defensa) {
-        this.Defensa = Defensa;
+    public void setDefensa(int pDefensa) {
+        this.Defensa = pDefensa;
     }
 
     public int getX() {
         return X;
     }
 
-    public void setX(int X) {
-        this.X = X;
+    public void setX(int pX) {
+        this.X = pX;
     }
 
     public int getY() {
         return Y;
     }
 
-    public void setY(int Y) {
-        this.Y = Y;
+    public void setY(int pY) {
+        this.Y = pY;
     }
 
     public Poder getPoderMutante() {
         return PoderMutante;
     }
 
-    public void setPoderMutante(Poder PoderMutante) {
-        this.PoderMutante = PoderMutante;
+    public void setPoderMutante(Poder pPoderMutante) {
+        this.PoderMutante = pPoderMutante;
     }
 
-    public boolean isModoInmune() {
-        return ModoInmune;
-    }
-
-    public void setModoInmune(boolean ModoInmune) {
-        this.ModoInmune = ModoInmune;
-    }
     public int UsarPoder(){
         return PoderMutante.UsarPoder();
     }

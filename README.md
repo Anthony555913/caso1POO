@@ -43,7 +43,6 @@
 - -X: int
 - -Y: int
 - -PoderMutante: Poder
-- -ModoInmune: boolean = false // puede o no ser atacado
 - +UsarPoder()
 - +Mover()
 - +Get()

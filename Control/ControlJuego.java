@@ -2,6 +2,7 @@ package Control;
 
 import BattleField.BattleField;
 import Team.Equipo;
+import java.util.Random;
 import molde.PersonaMutante;
 
 
@@ -10,6 +11,7 @@ public class ControlJuego {
     private Equipo Equipo2;
     private BattleField Tablero;
     private int CanIntegrantePorEquipo;
+    
 
     public ControlJuego(int pCanIntegrantePorEquipo) {
         this.CanIntegrantePorEquipo = pCanIntegrantePorEquipo;
@@ -56,16 +58,33 @@ public class ControlJuego {
         return this.Equipo1.getEstadoEquipo() && this.Equipo2.getEstadoEquipo();
     }
     public void EjecutarAccion(PersonaMutante pAtacante,PersonaMutante pObjetivo){
+    
+        int dannoBase = pAtacante.UsarPoder();
 
+        Random pRandom = new Random();
+        boolean seDefiende = pRandom.nextBoolean(); 
+
+        int dannoFinal=0;
+
+        if (seDefiende) {
+            dannoFinal = dannoBase - pObjetivo.getDefensa();
+        } else {
+            dannoFinal = dannoBase;
+            System.out.println("Mutante " + pObjetivo.getId() + " no se defendió.");
+            }
     }
     public void DefinirAccion() {
         for (PersonaMutante pAtacante : this.Equipo1.getIntegrantes()) {
             for (PersonaMutante pObjetivo : this.Equipo2.getIntegrantes()) {
                 double distancia = CalDistancia(pAtacante, pObjetivo);
-                if (pAtacante.getEstado() == true && pObjetivo.getEstado() == true
-                    && pAtacante.isModoInmune() == false && pObjetivo.isModoInmune() == false && distancia<=5) {
-                    EjecutarAccion(pAtacante, pObjetivo);
-                
+                if (pAtacante.getEstado() == true && pObjetivo.getEstado() == true && distancia<=5) {
+                    Random pRandom = new Random();
+                    boolean seDefiende = pRandom.nextBoolean(); 
+                    if(seDefiende){
+                        EjecutarAccion(pAtacante, pObjetivo);
+                    }else{
+                        EjecutarAccion(pObjetivo, pAtacante);
+                    }
                 }
             }
         }
