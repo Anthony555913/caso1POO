@@ -5,6 +5,7 @@ public class PersonaMutante{
     private boolean Estado;
     private int Vida = 100;
     private int Defensa;
+    private int AtaqueAumento=0;
     private int X;
     private int Y;
     private Poder PoderMutante;
@@ -66,6 +67,14 @@ public class PersonaMutante{
         this.Y = pY;
     }
 
+    public int getAtaqueAumento() {
+        return AtaqueAumento;
+    }
+
+    public void setAtaqueAumento(int pAtaqueAumento) {
+        this.Y = pAtaqueAumento;
+    }
+
     public Poder getPoderMutante() {
         return PoderMutante;
     }
@@ -75,6 +84,6 @@ public class PersonaMutante{
     }
 
     public int UsarPoder(){
-        return PoderMutante.UsarPoder();
+        return PoderMutante.UsarPoder()+AtaqueAumento;
     }
 }

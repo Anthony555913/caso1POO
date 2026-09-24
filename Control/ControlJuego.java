@@ -3,7 +3,9 @@ package Control;
 import BattleField.BattleField;
 import Team.Equipo;
 import java.util.Random;
-import molde.PersonaMutante;
+import molde.*;
+import java.util.List;
+import java.util.ArrayList;
 
 
 public class ControlJuego {
@@ -72,6 +74,27 @@ public class ControlJuego {
             dannoFinal = dannoBase;
             System.out.println("Mutante " + pObjetivo.getId() + " no se defendió.");
             }
+        if (dannoFinal < 0) {
+            dannoFinal = 0; // evita que el daño negativo "cure" al objetivo
+        }
+    
+        int vidaRestante = pObjetivo.getVida() - dannoFinal;
+        pObjetivo.setVida(vidaRestante);
+    
+        System.out.println("Mutante " + pAtacante.getId() + " ataca a Mutante "
+                + pObjetivo.getId() + " causando " + dannoFinal + " de daño. Vida restante: "
+                + Math.max(vidaRestante, 0));
+    
+        if (vidaRestante <= 0) {
+            pObjetivo.setEstado(false);
+            System.out.println("Mutante " + pObjetivo.getId() + " ha sido derrotado.");
+            if (pAtacante.UsarPoder() < 7) {
+
+                pAtacante.setAtaqueAumento(pAtacante.getAtaqueAumento()+1);
+                System.out.println("Mutante " + pAtacante.getId() + " sube su daño a "
+                        + pAtacante.UsarPoder());
+            }
+        }
     }
     public void DefinirAccion() {
         for (PersonaMutante pAtacante : this.Equipo1.getIntegrantes()) {
@@ -89,4 +112,44 @@ public class ControlJuego {
             }
         }
     }
+public void Mover(int pAumento) {
+    List<PersonaMutante> pTodos = new ArrayList<PersonaMutante>();
+    pTodos.addAll(this.Equipo1.getIntegrantes());
+    pTodos.addAll(this.Equipo2.getIntegrantes());
+
+    Random pRandom = new Random();
+
+    for (PersonaMutante pMutante : pTodos) {
+        if (pMutante.getEstado() == true) {
+
+            // -1, 0 o 1 en cada eje -> cubre horizontal, vertical y diagonal
+            int direccionX = pRandom.nextInt(3) - 1;
+            int direccionY = pRandom.nextInt(3) - 1;
+
+            int nuevaX = pMutante.getX() + (direccionX * pAumento);
+            int nuevaY = pMutante.getY() + (direccionY * pAumento);
+
+            // Revisar aquí mismo si algún otro mutante ya ocupa esa posición
+            boolean pOcupada = false;
+            for (PersonaMutante pOtro : pTodos) {
+                if (pOtro != pMutante && pOtro.getEstado() == true) {
+                    if (pOtro.getX() == nuevaX && pOtro.getY() == nuevaY) {
+                        pOcupada = true;
+                        break;
+                    }
+                }
+            }
+
+            if (!pOcupada) {
+                pMutante.setX(nuevaX);
+                pMutante.setY(nuevaY);
+                System.out.println("Mutante " + pMutante.getId() + " se mueve a ("
+                        + nuevaX + ", " + nuevaY + ")");
+            } else {
+                
+            }
+        }
+    }
+}
+
 }

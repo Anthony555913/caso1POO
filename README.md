@@ -42,6 +42,7 @@
 - -Defensa: int
 - -X: int
 - -Y: int
+- -AtaqueAumento: int
 - -PoderMutante: Poder
 - +UsarPoder()
 - +Mover()
