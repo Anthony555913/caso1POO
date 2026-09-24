@@ -50,9 +50,9 @@ public class Equipo{
     public void setEstadoEquipo(boolean pEstadoEquipo) {
         this.EstadoEquipo = pEstadoEquipo;
     }
-    public void RestarIntegrantes(int pResta){
-        this.CanIntegrantes-=pResta;
-        if (this.CanIntegrantes <= 0) {
+    public void RestarVivos(int pResta){
+        this.Vivos-=pResta;
+        if (this.Vivos <= 0) {
             setEstadoEquipo(false);
             
         }

@@ -29,7 +29,7 @@
 - -Color: string
 - -Vivos: int
 - -EstadoEquipo: boolean=true 
-- +RestarIntegrantes()
+- +RestarVivos()
 - +Get()
 - +Set()
 

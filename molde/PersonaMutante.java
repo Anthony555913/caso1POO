@@ -51,19 +51,19 @@ public class PersonaMutante{
         this.Defensa = pDefensa;
     }
 
-    public int getX() {
+    public synchronized int getX() {
         return X;
     }
 
-    public void setX(int pX) {
+    public synchronized void setX(int pX) {
         this.X = pX;
     }
 
-    public int getY() {
+    public synchronized int getY() {
         return Y;
     }
 
-    public void setY(int pY) {
+    public synchronized void setY(int pY) {
         this.Y = pY;
     }
 
@@ -72,7 +72,7 @@ public class PersonaMutante{
     }
 
     public void setAtaqueAumento(int pAtaqueAumento) {
-        this.Y = pAtaqueAumento;
+        this.AtaqueAumento = pAtaqueAumento;
     }
 
     public Poder getPoderMutante() {
