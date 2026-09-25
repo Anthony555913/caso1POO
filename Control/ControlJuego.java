@@ -188,12 +188,12 @@ public class ControlJuego {
     public void IniciarVariables() {
         int pTamanoTablero = this.CanIntegrantePorEquipo * 5;
         this.Tablero = new BattleField(pTamanoTablero, pTamanoTablero);
-
-        this.Equipo1 = CrearEquipoAleatorio("rojo", 1);
-        this.Equipo2 = CrearEquipoAleatorio("azul", this.CanIntegrantePorEquipo + 1);
+        int pMitad = pTamanoTablero / 2;
+        this.Equipo1 = IniciarTablero("rojo", 1, 0, pMitad);
+        this.Equipo2 = IniciarTablero("azul", this.CanIntegrantePorEquipo + 1, pMitad, pTamanoTablero);
     }
 
-    private Equipo CrearEquipoAleatorio(String pColor, int pIdInicial) {
+    private Equipo IniciarTablero(String pColor, int pIdInicial, int pXMin, int pXMax) {
         ArrayList<PersonaMutante> pIntegrantes = new ArrayList<>();
         int pTamanoTablero = this.CanIntegrantePorEquipo * 5;
         Random pRandom = new Random();
@@ -201,7 +201,7 @@ public class ControlJuego {
         for (int i = 0; i < this.CanIntegrantePorEquipo; i++) {
             int pId = pIdInicial + i;
             int pDefensa = pRandom.nextInt(10) + 1; // defensa entre 1 y 10
-            int pX = pRandom.nextInt(pTamanoTablero + 1); // 0..pTamanoTablero
+            int pX = pXMin + pRandom.nextInt(pXMax - pXMin + 1);   // <-- X solo entre pXMin y pXMax
             int pY = pRandom.nextInt(pTamanoTablero + 1);
 
             PersonaMutante pMutante;
