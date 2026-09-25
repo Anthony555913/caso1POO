@@ -166,9 +166,9 @@ public class ControlJuego {
         int total=(this.CanIntegrantePorEquipo*2)+1;
         while (CalcularEstadoEquipo()) {
             int pCanAtual = total-(this.Equipo1.getVivos()+this.Equipo2.getVivos());
-            Thread pHiloMover = new Thread(() -> Mover(pCanAtual));
+            final int pAumento = Math.min(pCanAtual, 5);
+            Thread pHiloMover = new Thread(() -> Mover(pAumento));
             Thread pHiloDefinir = new Thread(() -> DefinirAccion());
-
             pHiloMover.start();
             pHiloDefinir.start();
 

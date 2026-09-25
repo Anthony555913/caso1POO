@@ -27,11 +27,11 @@ public class PersonaMutante{
         this.Id = pId;
     }
 
-    public boolean getEstado() {
+    public synchronized  boolean getEstado() {
         return Estado;
     }
 
-    public void setEstado(boolean pEstado) {
+    public synchronized  void setEstado(boolean pEstado) {
         this.Estado = pEstado;
     }
 
